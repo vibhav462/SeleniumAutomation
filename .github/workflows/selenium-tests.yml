@@ -25,12 +25,12 @@ jobs:
           distribution: 'adopt'
           architecture: x64
 
-      - name: Set up Microsoft Edge WebDriver
-        uses: browser-actions/setup-edge@v1
-        with:
-          edge-version: stable
-          cache: false  # Adjust cache based on your needs
-          driver-path: ./opt/hostedtoolcache/msedge/stable/x64  # Path to the folder containing msedgedriver.exe
+      # - name: Set up Microsoft Edge WebDriver
+      #   uses: browser-actions/setup-edge@v1
+      #   with:
+      #     edge-version: stable
+      #     cache: false  # Adjust cache based on your needs
+      #     driver-path: ./opt/hostedtoolcache/msedge/stable/x64  # Path to the folder containing msedgedriver.exe
 
       - name: List directory contents
         run: ls -l src/test/driver
