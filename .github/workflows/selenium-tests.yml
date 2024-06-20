@@ -3,16 +3,17 @@ name: Selenium Tests
 on:
   push:
     branches:
-      - main  # adjust branch as needed
+      - main
   pull_request:
     branches:
-      - main  # Replace with your branch name    
+      - main
   schedule:
     - cron: '0 0 * * *'  # Schedule daily at midnight UTC; adjust as needed
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,25 +21,17 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '16'  
+          java-version: '16'
           distribution: 'adopt'
-          server-id: github
-          server-username: ${{ github.actor }}
-          server-password: ${{ secrets.GITHUB_TOKEN }}
           architecture: x64
-          check-latest: false
-          overwrite: true
-          job-status: success
-        
+
       - name: Set up Microsoft Edge WebDriver
         uses: browser-actions/setup-edge@v1
-        
+
       - name: Install dependencies
-        run: |
-          mvn clean install  # Assuming Maven is used for dependency management
+        run: mvn clean install
 
       - name: Run Selenium tests
-        run: |
-          mvn clean test  # Adjust as per your Maven command to run tests
+        run: mvn clean test
         env:
           CI: true
