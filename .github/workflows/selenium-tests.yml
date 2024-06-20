@@ -31,4 +31,6 @@ jobs:
 
       - name: Run Selenium tests
         run: |
-          mvn test  # Command to run your Selenium tests with Maven
+          mvn clean test  # Adjust as per your Maven command to run tests
+        env:
+          CI: true
