@@ -30,7 +30,7 @@ jobs:
         with:
           edge-version: stable
           cache: false  # Adjust cache based on your needs
-          driver-path: src/test/driver/  # Path to the folder containing msedgedriver.exe
+          driver-path: ./src/test/driver  # Path to the folder containing msedgedriver.exe
 
       - name: List directory contents
         run: ls -l src/test/driver
