@@ -33,7 +33,7 @@ jobs:
           driver-path: ./opt/hostedtoolcache/msedge/stable/x64  # Path to the folder containing msedgedriver.exe
 
       - name: List directory contents
-        run: ls -l ./opt/hostedtoolcache/msedge/stable/x64
+        run: ls -l src/test/driver
   
       - name: Make msedgedriver executable
         run: chmod +x ./opt/hostedtoolcache/msedge/stable/x64/msedge.exe
