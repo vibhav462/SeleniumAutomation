@@ -35,6 +35,7 @@ public class BaseClass {
         EdgeOptions options=new EdgeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
         options.addArguments("--headless");
         driver = new EdgeDriver(options);
         driver.manage().window().maximize();
