@@ -30,7 +30,7 @@ public class BaseClass {
     }
 
     public static WebDriver edgeDriver(){
-        System.setProperty("webdriver.edge.driver", "src/test/driver/msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver", "/home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe");
         EdgeOptions options=new EdgeOptions();
         options.addArguments("--remote-allow-origins=*");
         driver = new EdgeDriver(options);
