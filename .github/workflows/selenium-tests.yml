@@ -36,7 +36,14 @@ jobs:
         run: ls -l src/test/driver
   
       - name: Make msedgedriver executable
-        run: chmod +x src/test/driver/msedgedriver.exe
+        run: chmod +x /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
+
+      - name: Debug file paths
+        run: |
+          echo "Current directory: $(pwd)"
+          ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver
+          ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
+
 
       - name: Install dependencies
         run: mvn clean install
