@@ -4,26 +4,31 @@ on:
   push:
     branches:
       - main  # adjust branch as needed
+  pull_request:
+    branches:
+      - main  # Replace with your branch name    
   schedule:
     - cron: '0 0 * * *'  # Schedule daily at midnight UTC; adjust as needed
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: '16'  
 
-      - name: Build with Maven
-        run: mvn clean verify
+      - name: Set up Microsoft Edge WebDriver
+        uses: browser-actions/setup-edge@v1
 
-      - name: Run Selenium Tests
-        run: mvn test  # Adjust this command based on your Maven setup
+      - name: Install dependencies
+        run: |
+          mvn clean install  # Assuming Maven is used for dependency management
 
-      # Additional steps like publishing test results or artifacts can be added her
+      - name: Run Selenium tests
+        run: |
+          mvn test  # Command to run your Selenium tests with Maven
