@@ -35,9 +35,8 @@ jobs:
       - name: List directory contents
         run: ls -l src/test/driver
   
-      - name: Set executable permissions on msedgedriver
-        run: |
-         chmod +x src/test/driver/msedgedriver
+      - name: Make msedgedriver executable
+        run: chmod +x src/test/driver/msedgedriver.exe
 
       - name: Install dependencies
         run: mvn clean install
