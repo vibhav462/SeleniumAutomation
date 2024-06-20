@@ -1,0 +1,29 @@
+name: Selenium Tests
+
+on:
+  push:
+    branches:
+      - main  # adjust branch as needed
+  schedule:
+    - cron: '0 0 * * *'  # Schedule daily at midnight UTC; adjust as needed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Build with Maven
+        run: mvn clean verify
+
+      - name: Run Selenium Tests
+        run: mvn test  # Adjust this command based on your Maven setup
+
+      # Additional steps like publishing test results or artifacts can be added her
