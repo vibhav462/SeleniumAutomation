@@ -22,8 +22,8 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '16'
-          distribution: 'adopt'
-          architecture: x64
+          # distribution: 'adopt'
+          # architecture: x64
 
       # - name: Set up Microsoft Edge WebDriver
       #   uses: browser-actions/setup-edge@v1
@@ -32,17 +32,17 @@ jobs:
       #     cache: false  # Adjust cache based on your needs
       #     driver-path: ./opt/hostedtoolcache/msedge/stable/x64  # Path to the folder containing msedgedriver.exe
 
-      - name: List directory contents
-        run: ls -l src/test/driver
+      # - name: List directory contents
+        # run: ls -l src/test/driver
   
-      - name: Make msedgedriver executable
-        run: chmod +x /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
+      # - name: Make msedgedriver executable
+        # run: chmod +x /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
 
-      - name: Debug file paths
-        run: |
-          echo "Current directory: $(pwd)"
-          ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver
-          ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
+      # - name: Debug file paths
+      #   run: |
+      #     echo "Current directory: $(pwd)"
+      #     ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver
+      #     ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
 
 
       - name: Install dependencies
