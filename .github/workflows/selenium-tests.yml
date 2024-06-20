@@ -30,11 +30,8 @@ jobs:
           overwrite: true
           job-status: success
         
-      - name: Set executable permissions on msedgedriver.exe
-        run: chmod +x src/test/driver/msedgedriver.exe
-
-      - name: Debug file structure
-        run: ls -lR src/test/driver/
+      - name: Set up Microsoft Edge WebDriver
+        uses: browser-actions/setup-edge@v1
         
       - name: Install dependencies
         run: |
