@@ -30,13 +30,13 @@ jobs:
         with:
           edge-version: stable
           cache: false  # Adjust cache based on your needs
-          driver-path: ./src/test/driver  # Path to the folder containing msedgedriver.exe
+          driver-path: ./opt/hostedtoolcache/msedge/stable/x64  # Path to the folder containing msedgedriver.exe
 
       - name: List directory contents
-        run: ls -l src/test/driver
+        run: ls -l ./opt/hostedtoolcache/msedge/stable/x64
   
       - name: Make msedgedriver executable
-        run: chmod +x src/test/driver/msedgedriver.exe
+        run: chmod +x ./opt/hostedtoolcache/msedge/stable/x64/msedge.exe
 
       - name: Install dependencies
         run: mvn clean install
