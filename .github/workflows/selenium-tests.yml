@@ -32,6 +32,10 @@ jobs:
           cache: false  # Adjust cache based on your needs
           driver-path: src/test/driver/  # Path to the folder containing msedgedriver.exe
 
+      - name: Set executable permissions on msedgedriver
+        run: |
+         chmod +x src/test/driver/msedgedriver
+
       - name: Install dependencies
         run: mvn clean install
 
