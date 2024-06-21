@@ -33,8 +33,6 @@ public class BaseClass {
     public static WebDriver edgeDriver(){
         WebDriverManager.edgedriver().setup();
         EdgeOptions options=new EdgeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--headless");
         driver = new EdgeDriver(options);
