@@ -10,16 +10,16 @@ import org.openqa.selenium.support.PageFactory;
 public class Elements {
     private WebDriver driver;
 
-    @FindBy(xpath = "//*[@data-test-attrib=\"cleartrip-logo\"]")
+    @FindBy(xpath = "//*[@data-test-attrib='cleartrip-logo']")
     public WebElement verifySearch;
 
-    @FindBy(xpath = "//*[@placeholder=\"Enter mobile number\"]")
+    @FindBy(xpath = "//*[@placeholder='Enter mobile number']")
     public WebElement verifyPopup;
 
-    @FindBy(xpath = "//*[contains(text(),\"Change number\")]")
+    @FindBy(xpath = "//*[contains(text(),'Change number')]")
     public WebElement chngNumber;
 
-    @FindBy(xpath = "//*[@class=\" c-pointer c-neutral-900\"]")
+    @FindBy(xpath = "//*[@class=' c-pointer c-neutral-900']")
     public WebElement crossMark;
 
     public Elements(WebDriver driver) {
