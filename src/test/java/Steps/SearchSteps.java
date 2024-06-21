@@ -18,11 +18,12 @@ public class SearchSteps {
     @Given("User is on the search page")
     public void user_is_on_the_search_page() throws InterruptedException {
         System.out.println("Inside StepDef");
-        driver.get("https://www.google.com/");
+        driver.get("https://www.cleartrip.com/");
         // wait.until(ExpectedConditions.visibilityOf(elements.verifySearch));
-         Thread.sleep(150000);
+        Thread.sleep(150000);
         System.out.println(driver.getTitle());
-        // elements.verifyPopup.sendKeys("0123456789");
-        // elements.verifyAndClose();
+        elements.verifyPopup.sendKeys("0123456789");
+        elements.verifyAndClose();
+        System.out.println(driver.getTitle());
     }
 }
