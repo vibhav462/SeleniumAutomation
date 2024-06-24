@@ -32,7 +32,10 @@ public class BaseClass {
     public static WebDriver edgeDriver(){
         System.setProperty("webdriver.edge.driver","src/test/driver/msedgedriver.exe");
         EdgeOptions options=new EdgeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--headless");
         driver = new EdgeDriver(options);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
