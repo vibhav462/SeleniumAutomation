@@ -1,0 +1,54 @@
+name: Selenium Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'  # Schedule daily at midnight UTC; adjust as needed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '16'
+          distribution: 'adopt'
+          # architecture: x64
+
+      # - name: Set up Microsoft Edge WebDriver
+      #   uses: browser-actions/setup-edge@v1
+      #   with:
+      #     edge-version: stable
+      #     cache: false  # Adjust cache based on your needs
+      #     driver-path: ./opt/hostedtoolcache/msedge/stable/x64  # Path to the folder containing msedgedriver.exe
+
+      # - name: List directory contents
+        # run: ls -l src/test/driver
+  
+      # - name: Make msedgedriver executable
+        # run: chmod +x /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
+
+      # - name: Debug file paths
+      #   run: |
+      #     echo "Current directory: $(pwd)"
+      #     ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver
+      #     ls -l /home/runner/work/SeleniumAutomation/SeleniumAutomation/src/test/driver/msedgedriver.exe
+
+
+      - name: Install dependencies
+        run: mvn clean install
+
+      - name: Run Selenium tests
+        run: mvn clean test
+        env:
+          CI: true
