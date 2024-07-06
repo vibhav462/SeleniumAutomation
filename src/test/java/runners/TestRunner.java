@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/", // Path to your feature files
         glue = {"Steps","Pages","HooksBase"},
-        plugin = {"pretty"}// Package where your step definitions are located
+        plugin = {"pretty"},// Package where your step definitions are located
+        tags = "@xyz4"
 )
 public class TestRunner {
     // This class will not have any code because Cucumber will run the feature files based on the options provided
